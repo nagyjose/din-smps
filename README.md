@@ -14,30 +14,27 @@ The `din-smps` repository provides an offline AC/DC switched-mode power supply (
 - **Galvanic Isolation:** Primary-to-secondary isolation exceeding 3 kV via an optocoupler feedback loop and specialized flyback transformer.
 - **High Efficiency & Low Standby:** Powered by the **Power Integrations TNY267PN** TinySwitch-II offline switcher with EcoSmart® technology, providing auto-restart, cycle skipping, and thermal shutdown.
 - **Robust Mains Protection:** Multistage input stage incorporating an overcurrent PTC fuse, Metal Oxide Varistor (MOV) surge arrestor, and NTC inrush current limiter.
-- **Dual Regulated Output Rails (Standard Model):** Delivers regulated **+12 V DC** (for relay coils, RS-485 bus line, and actuators) and **+5 V DC** (for digital logic and microcontrollers).
-- **Dual Hardware Variants:**
-  - **Standard (`SMPS-DIN`):** Full-featured dual-rail (+12V & +5V) output with complete EMI filtering, Y-safety capacitors, and protective Earth grounding.
-  - **Lite (`SMPS-DIN-LITE`):** Compact single-rail (+12V) design with space-saving vertical component footprints for auxiliary or localized sub-racks.
+- **Dual Regulated Output Rails:** Delivers regulated **+12 V DC** (for relay coils, RS-485 bus line, and actuators) and **+5 V DC** (for digital logic and microcontrollers).
 - **CAD & Mechanical Enclosure Ready:** Includes board layout, schematic, CAM drill legends, and exact mechanical DXF outlines aligned with the Kradex Z106J modular enclosure.
 
 ---
 
 ## 2. Technical Specifications
 
-| Parameter | Standard Model (`SMPS-DIN`) | Compact Model (`SMPS-DIN-LITE`) |
-| :--- | :--- | :--- |
-| **Input Voltage Range** | 85 – 265 V AC, 50/60 Hz | 85 – 265 V AC, 50/60 Hz |
-| **Primary Topology** | Discontinuous Flyback Converter | Discontinuous Flyback Converter |
-| **Primary Controller IC** | Power Integrations TNY267PN | Power Integrations TNY267PN |
-| **Transformer** | Myrra 74080 (designed for TinySwitch-II) | Myrra 74080 |
-| **Output Voltages** | **+12 V DC** (Regulated) & **+5 V DC** (Regulated) | **+12 V DC** (Regulated) |
-| **Linear Post-Regulators** | STMicroelectronics L7812ABV & L7805ACV | STMicroelectronics L7812ABV |
-| **Output Rectifier** | 1N5822 (3 A / 40 V Schottky Barrier Rectifier) | 1N5822 (3 A / 40 V Schottky) |
-| **Feedback Loop** | Sharp PC817 optocoupler + 15V Zener diode reference | Sharp PC817 optocoupler + 15V Zener reference |
-| **Input Protection** | PTC Resettable Fuse, MOV 680V (HEL-7D681K), NTC 10 Ω | PTC Resettable Fuse, MOV 680V (HEL-7D681K) |
-| **EMI / Safety Filtering** | 2.2 mH filter choke + Y-class ceramic caps | 2.2 mH filter choke |
-| **Target Enclosure** | Kradex Z106J PS DIN-Rail Modular Box | Compact DIN sub-housing |
-| **PCB Form Factor** | Double-sided 1.6 mm FR4, custom outline | Double-sided 1.6 mm FR4, compact outline |
+| Parameter | Specification (`SMPS-DIN`) |
+| :--- | :--- |
+| **Input Voltage Range** | 85 – 265 V AC, 50/60 Hz |
+| **Primary Topology** | Discontinuous Flyback Converter |
+| **Primary Controller IC** | Power Integrations TNY267PN |
+| **Transformer** | Myrra 74080 (designed for TinySwitch-II) |
+| **Output Voltages** | **+12 V DC** (Regulated) & **+5 V DC** (Regulated) |
+| **Linear Post-Regulators** | STMicroelectronics L7812ABV & L7805ACV |
+| **Output Rectifier** | 1N5822 (3 A / 40 V Schottky Barrier Rectifier) |
+| **Feedback Loop** | Sharp PC817 optocoupler + 15V Zener diode reference |
+| **Input Protection** | PTC Resettable Fuse, MOV 680V (HEL-7D681K), NTC 10 Ω |
+| **EMI / Safety Filtering** | 2.2 mH filter choke + Y-class ceramic capacitors |
+| **Target Enclosure** | Kradex Z106J PS DIN-Rail Modular Box |
+| **PCB Form Factor** | Double-sided 1.6 mm FR4, custom enclosure outline |
 
 ---
 
@@ -101,21 +98,13 @@ flowchart TD
 
 ---
 
-## 4. Hardware Schematics & Visuals
+## 4. Hardware Schematic & Visuals
 
-### Standard Model (`SMPS-DIN`) Schematic
-Below is the full schematic diagram of the standard dual-output SMPS-DIN converter:
+Below is the full schematic diagram of the dual-output SMPS-DIN converter:
 
 ![SMPS-DIN Schematic Diagram](docs/images/smps_din_schematic.png)
 
 📄 [Open original full-resolution schematic (PDF)](SMPS-DIN.pdf)
-
-### Compact Model (`SMPS-DIN-LITE`) Schematic
-Below is the schematic diagram of the space-optimized single-output SMPS-DIN-LITE variant:
-
-![SMPS-DIN-LITE Schematic Diagram](docs/images/smps_din_lite_schematic.png)
-
-📄 [Open original full-resolution Lite schematic (PDF)](variants/smps-din-lite/SMPS-DIN-LITE.pdf)
 
 ---
 
@@ -128,17 +117,9 @@ Below is the schematic diagram of the space-optimized single-output SMPS-DIN-LIT
 ├── SMPS-DIN.dxf                   # Mechanical outline and mounting drawing (DXF)
 ├── SMPS-DIN.pdf                   # Schematic and layout printout
 ├── DRILEGEND.CFG                  # Eagle drill legend configuration
-├── variants/
-│   └── smps-din-lite/
-│       ├── SMPS-DIN-LITE.sch      # Compact variant schematic (Eagle)
-│       ├── SMPS-DIN-LITE.brd      # Compact variant PCB layout (Eagle)
-│       ├── SMPS-DIN-LITE.pdf      # Compact variant preview PDF
-│       ├── DRILEGEND.CFG          # Drill legend configuration
-│       └── README.md              # Lite variant documentation
 ├── docs/
 │   ├── images/                    # Rendered 180 DPI hardware visuals
-│   │   ├── smps_din_schematic.png # Standard model schematic preview
-│   │   └── smps_din_lite_schematic.png # Compact model schematic preview
+│   │   └── smps_din_schematic.png # Standard model schematic preview
 │   ├── calculations/
 │   │   ├── Součástky.xlsx         # Component selection & parameter calculations
 │   │   ├── Součástky (version 1).xlsb.xlsx # Early design calculation sheet
@@ -207,6 +188,7 @@ The repository includes complete component calculation and procurement files loc
 ## 8. Cross-Project Relationships & Ecosystem
 
 This project is an integral building block of the **Smart Home DIN-Rail Ecosystem**:
+- **[din-smps-lite](https://github.com/nagyjose/din-smps-lite):** Space-optimized single-rail (+12 V) DIN power supply variant for auxiliary racks.
 - **[din-control-module](https://github.com/nagyjose/din-control-module):** Main DIN-rail central automation unit, powered by the +12V / +5V rails from this supply.
 - **[din-relay-module](https://github.com/nagyjose/din-relay-module):** DIN-rail 8-channel power relay actuator module, drawing coil power from the +12V rail.
 - **[domovni-rozvadec-dokumentace](https://github.com/nagyjose/domovni-rozvadec-dokumentace):** Cabinet wiring diagrams and schematics showing installation of this SMPS alongside the Wattrouter controller.
