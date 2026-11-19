@@ -101,7 +101,25 @@ flowchart TD
 
 ---
 
-## 4. Repository Structure
+## 4. Hardware Schematics & Visuals
+
+### Standard Model (`SMPS-DIN`) Schematic
+Below is the full schematic diagram of the standard dual-output SMPS-DIN converter:
+
+![SMPS-DIN Schematic Diagram](docs/images/smps_din_schematic.png)
+
+📄 [Open original full-resolution schematic (PDF)](SMPS-DIN.pdf)
+
+### Compact Model (`SMPS-DIN-LITE`) Schematic
+Below is the schematic diagram of the space-optimized single-output SMPS-DIN-LITE variant:
+
+![SMPS-DIN-LITE Schematic Diagram](docs/images/smps_din_lite_schematic.png)
+
+📄 [Open original full-resolution Lite schematic (PDF)](variants/smps-din-lite/SMPS-DIN-LITE.pdf)
+
+---
+
+## 5. Repository Structure
 
 ```text
 .
@@ -118,6 +136,9 @@ flowchart TD
 │       ├── DRILEGEND.CFG          # Drill legend configuration
 │       └── README.md              # Lite variant documentation
 ├── docs/
+│   ├── images/                    # Rendered 180 DPI hardware visuals
+│   │   ├── smps_din_schematic.png # Standard model schematic preview
+│   │   └── smps_din_lite_schematic.png # Compact model schematic preview
 │   ├── calculations/
 │   │   ├── Součástky.xlsx         # Component selection & parameter calculations
 │   │   ├── Součástky (version 1).xlsb.xlsx # Early design calculation sheet
@@ -135,7 +156,7 @@ flowchart TD
 
 ---
 
-## 5. Bill of Materials & Sourcing
+## 6. Bill of Materials & Sourcing
 
 The repository includes complete component calculation and procurement files located in [docs/calculations/](file:///c:/Users/josef/Documents/EAGLE/projects/SMPS-DIN/docs/calculations).
 
@@ -165,7 +186,7 @@ The repository includes complete component calculation and procurement files loc
 
 ---
 
-## 6. Manufacturing & EDA Guidelines
+## 7. Manufacturing & EDA Guidelines
 
 ### Opening and Editing in Autodesk Eagle
 1. Open Autodesk Eagle (version 8.x, 9.x, or Autodesk Fusion 360 Electronics).
@@ -183,7 +204,7 @@ The repository includes complete component calculation and procurement files loc
 
 ---
 
-## 7. Cross-Project Relationships & Ecosystem
+## 8. Cross-Project Relationships & Ecosystem
 
 This project is an integral building block of the **Smart Home DIN-Rail Ecosystem**:
 - **[din-control-module](https://github.com/nagyjose/din-control-module):** Main DIN-rail central automation unit, powered by the +12V / +5V rails from this supply.
@@ -192,6 +213,6 @@ This project is an integral building block of the **Smart Home DIN-Rail Ecosyste
 
 ---
 
-## 8. License
+## 9. License
 
 This hardware project is open source and licensed under the [MIT License](LICENSE) (or CERN Open Hardware Licence v2 - Permissive).

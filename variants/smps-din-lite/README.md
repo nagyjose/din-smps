@@ -20,6 +20,10 @@
 
 ## Schematic & Board Files
 
+![SMPS-DIN-LITE Schematic](../../docs/images/smps_din_lite_schematic.png)
+
+📄 [Open original full-resolution Lite schematic (PDF)](SMPS-DIN-LITE.pdf)
+
 - `SMPS-DIN-LITE.sch` – Autodesk Eagle schematic
 - `SMPS-DIN-LITE.brd` – Autodesk Eagle 2-layer PCB layout
 - `SMPS-DIN-LITE.pdf` – Schematic and PCB preview
